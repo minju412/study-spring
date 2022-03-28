@@ -1,6 +1,7 @@
 package hello.hellospring;
 
 import hello.hellospring.repository.JdbcMemberRepository;
+import hello.hellospring.repository.JdbcTemplateMemberRepository;
 import hello.hellospring.repository.MemberRepository;
 import hello.hellospring.repository.MemoryMemberRepository;
 import hello.hellospring.service.MemberService;
@@ -28,6 +29,7 @@ public class SpringConfig {
     @Bean
     public MemberRepository memberRepository(){
 //        return new MemoryMemberRepository(); // memory 버전의 memberRepository - 서버 다시 실행하면 데이터 사라짐
-        return new JdbcMemberRepository(dataSource); // jdbc 버전의 memberRepository - db 이용
+//        return new JdbcMemberRepository(dataSource); // jdbc 버전의 memberRepository - db 이용
+        return new JdbcTemplateMemberRepository(dataSource);
     }
 }
